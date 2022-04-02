@@ -168,12 +168,17 @@ impl RuntimeStandalone {
         let mut store_update = store.store_update();
         let runtime = Runtime::new();
         let tries = ShardTries::new(store, 1);
+        let mut account_ids: HashSet<AccountId> = HashSet::new();
+        genesis.for_each_record(|record: &StateRecord| {
+            account_ids.insert(state_record_to_account_id(record).clone());
+        });
         let (s_update, state_root) = runtime.apply_genesis_state(
             tries.clone(),
             0,
             &[],
             &genesis.state_records,
             &genesis.runtime_config,
+            account_ids
         );
         store_update.merge(s_update);
         store_update.commit().unwrap();
