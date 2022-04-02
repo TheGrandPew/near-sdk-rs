@@ -21,7 +21,7 @@ use near_primitives::types::{
 };
 use near_primitives::version::PROTOCOL_VERSION;
 use near_primitives::views::ViewApplyState;
-use near_runtime::{state_viewer::TrieViewer, ApplyState, Runtime};
+use node_runtime::{state_viewer::TrieViewer, ApplyState, Runtime};
 use near_sdk::{AccountId, Duration};
 use near_store::{
     get_access_key, get_account, set_account, test_utils::create_test_store, ShardTries, Store,
