@@ -324,7 +324,6 @@ pub fn ripemd160_array(value: &[u8]) -> [u8; 20] {
 /// which is generally only ideal for transactions.
 ///
 /// Returns 64 bytes representing the public key if the recovery was successful.
-#[cfg(feature = "unstable")]
 pub fn ecrecover(
     hash: &[u8],
     signature: &[u8],
