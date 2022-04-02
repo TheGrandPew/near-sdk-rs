@@ -11,7 +11,7 @@ use near_primitives::hash::CryptoHash;
 use near_primitives::profile::ProfileData;
 use near_primitives::receipt::Receipt;
 use near_primitives::runtime::config::RuntimeConfig;
-use near_primitives::state_record::StateRecord;
+use near_primitives::state_record::{state_record_to_account_id, StateRecord};
 use near_primitives::test_utils::account_new;
 use near_primitives::test_utils::MockEpochInfoProvider;
 use near_primitives::transaction::{ExecutionOutcome, ExecutionStatus, SignedTransaction};
@@ -26,6 +26,8 @@ use near_sdk::{AccountId, Duration};
 use near_store::{
     get_access_key, get_account, set_account, test_utils::create_test_store, ShardTries, Store,
 };
+
+use std::collections::{HashMap, HashSet};
 
 const DEFAULT_EPOCH_LENGTH: u64 = 3;
 const DEFAULT_BLOCK_PROD_TIME: Duration = 1_000_000_000;
@@ -168,6 +170,7 @@ impl RuntimeStandalone {
         let mut store_update = store.store_update();
         let runtime = Runtime::new();
         let tries = ShardTries::new(store, 1);
+
         let mut account_ids: HashSet<AccountId> = HashSet::new();
         genesis.for_each_record(|record: &StateRecord| {
             account_ids.insert(state_record_to_account_id(record).clone());
