@@ -20,7 +20,7 @@ near-vm-logic = "=4.0.0-pre.1"
 
 near-pool = "=0.1.0-pre.1"
 near-store = "=0.1.0-pre.1"
-near-runtime = {git = "https://github.com/near/nearcore", rev = "b0945d6"}
+near-runtime = {git = "https://github.com/near/nearcore.git", rev = "b0945d6"}
 
 
 lazy-static-include = "3"
