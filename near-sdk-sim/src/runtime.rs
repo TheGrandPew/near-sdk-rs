@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 
 use crate::cache::{cache_to_arc, create_cache, ContractCache};
@@ -26,8 +26,6 @@ use near_sdk::{AccountId, Duration};
 use near_store::{
     get_access_key, get_account, set_account, test_utils::create_test_store, ShardTries, Store,
 };
-
-use std::collections::{HashMap, HashSet};
 
 const DEFAULT_EPOCH_LENGTH: u64 = 3;
 const DEFAULT_BLOCK_PROD_TIME: Duration = 1_000_000_000;
