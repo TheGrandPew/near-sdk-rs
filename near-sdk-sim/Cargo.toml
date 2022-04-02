@@ -17,6 +17,7 @@ near-sdk = { path = "../near-sdk"}
 near-crypto = "=0.1.0"
 near-primitives = "=0.1.0-pre.1"
 near-vm-logic = {git = "https://github.com/near/nearcore.git", rev = "b0945d6"}
+near-vm-runner = {git = "https://github.com/near/nearcore.git", rev = "b0945d6"}
 
 near-pool = "=0.1.0-pre.1"
 near-store = "=0.1.0-pre.1"
