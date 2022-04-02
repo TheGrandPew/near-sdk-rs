@@ -33,6 +33,6 @@ fungible-token = { path="../examples/fungible-token/ft" }
 
 [features]
 default = []
-no_cache = ["near-store/no_cache", "near-runtime/no_cache"]
+#no_cache = ["near-store/no_cache", "near-runtime/no_cache"]
 no_sim = []
 no_contract_cache = []
