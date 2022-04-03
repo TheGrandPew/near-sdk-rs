@@ -175,7 +175,7 @@ impl RuntimeStandalone {
             &[],
             &genesis.state_records,
             &genesis.runtime_config,
-            HashSet<AccountId> = HashSet::new()
+            HashSet::new()
         );
         store_update.merge(s_update);
         store_update.commit().unwrap();
